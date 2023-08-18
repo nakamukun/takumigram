@@ -14,4 +14,6 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/q=piyota' , [PostController::class, 'index']);
+Route::get("/", function() {
+   return view("posts/index");
+});
