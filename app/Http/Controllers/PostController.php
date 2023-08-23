@@ -18,7 +18,7 @@ class PostController extends Controller
         return view("posts/show")->with(["post" => $post]);
     }
     
-    public function create ()
+    public function create()
     {
         return view("posts/create");
     }
@@ -39,5 +39,11 @@ class PostController extends Controller
         $input_post =$request["post"];
         $post->fill($input_post)->save();
         return redirect("/posts/" . $post->id);
+    }
+    
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect("/");
     }
 }
